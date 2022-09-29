@@ -25,4 +25,23 @@ const getNodeValueRecursive = (head, index) => {
     return getNodeValueRecursive(head.next, index - 1);
 }
 
+// Structy Recursive
+
+const getNodeValueStructyRecursive = (head, index) => {
+    if (head === null) return null;
+    if (index === 0) return head.val;
+    return getNodeValueStructyRecursive(head.next, index -1);
+}
+
 // Structy Iterative
+
+const getNodeValueStructy = (head, index) => {
+    let current = head;
+    let count = 0;
+    while (current !== null) {
+        if (count === index) return current.val;
+        count += 1;
+        current = current.next;
+    }
+    return null;
+}
