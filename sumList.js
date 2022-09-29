@@ -11,3 +11,10 @@ const sumList = (head) => {
 
     return result;
 }
+
+// Charlie's Recursive Solution
+
+const sumListRecursive = (head) => {
+    if (head === null) return 0;
+    return head.val + (sumListRecursive(head.next))
+}
