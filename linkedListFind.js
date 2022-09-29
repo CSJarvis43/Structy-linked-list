@@ -42,3 +42,8 @@ const linkedListFindStructy = (head, target) => {
 
 // Structy Recursive
 
+const linkedListFindStructyRecurisve = (head, target) => {
+    if (head === null) return false;
+    if (head.val === target) return true;
+    return linkedListFindStructyRecurisve(head.next, target)
+}
