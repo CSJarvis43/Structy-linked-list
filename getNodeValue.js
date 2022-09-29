@@ -1,4 +1,4 @@
-// Charlie's 
+// Charlie's Iterative
 
 const getNodeValue = (head, index) => {
     let current = head;
@@ -14,3 +14,18 @@ const getNodeValue = (head, index) => {
 
     return current;
 }
+
+// Charlie's Recursive 
+
+const getNodeValueRecursive = (head, index) => {
+    let i = 0;
+
+    if (head === null) return head;
+    if (i === index) return head.val;
+    
+    i++;
+
+    return getNodeValueRecursive(head, index);
+}
+
+// Structy Iterative
