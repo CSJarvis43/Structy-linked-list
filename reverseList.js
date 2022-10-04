@@ -15,3 +15,15 @@ const reverseList = (head) => {
 
     return previous;
 }
+
+
+// Charlie's Recursive 
+
+const reverseListRecursive = (head, prev = null) => {
+    if (head === null) return prev;
+
+    const next = head.next;
+    head.next = prev;
+    
+    return reverseListRecursive(next, head)
+}
