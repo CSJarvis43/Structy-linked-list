@@ -21,6 +21,16 @@ const isUnivalueList = (head) => {
     return true;
 }
 
+// Charlie's Recursive
+
+const isUnivalueListRecursive = (head, previousValue = null) => {
+    if (head === null) return true
+
+    if (previousValue !== null && head.val !== previousValue) return false;
+
+    return isUnivalueListRecursive(head.next, head.val)
+}
+
 
 const u = new Node(2);
 const v = new Node(2);
@@ -35,7 +45,7 @@ x.next = y;
 
 // 2 -> 2 -> 2 -> 2 -> 2
 
-console.log(isUnivalueList(u)) // true
+console.log(isUnivalueListRecursive(u)) // true
 
 
 
