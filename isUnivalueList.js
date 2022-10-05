@@ -36,3 +36,19 @@ x.next = y;
 // 2 -> 2 -> 2 -> 2 -> 2
 
 console.log(isUnivalueList(u)) // true
+
+
+
+//Structy Iterative 
+
+const isUnivalueListStructy = (head) => {
+    let current = head;
+
+    while (current !== null) {
+        if (current.val !== head.val) return false;
+        current = current.next;
+    }
+
+    return true;
+}
+
