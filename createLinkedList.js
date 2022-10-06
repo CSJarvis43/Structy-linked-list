@@ -24,5 +24,40 @@ const createLinkedList = (values) => {
     return dummyHead.next;
 }
 
+// Structy Iterative
 
-console.log(createLinkedList(["h", "e", "y"]))
+const createLinkedListStructy = (values) => {
+
+
+    const dummyHead = new Node(null);
+    let tail = dummyHead;
+    for (let val of values) {
+        tail.next = new Node(val);
+        tail = tail.next;
+    }
+
+    return dummyHead.next;
+
+}
+
+
+
+
+// Charlie Recursive
+
+
+const createLinkedListRecursive = (values) => {
+
+    if (values.length === 0) return null;
+
+    const head = new Node(values[0]);
+
+    head.next = createLinkedList(values.splice(1))
+
+    return head;
+
+}
+
+
+console.log(createLinkedListStructy(["h", "e", "y"]))
+// h -> e -> y
