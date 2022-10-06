@@ -54,7 +54,17 @@ const removeNodeStructy = (head, targetVal) => {
     return head;
 }
 
+// Charlie's Recursive
 
+const removeNodeRecursive = (head, target) => {
+
+    if (head === null) return null;
+    if (head.val === target) return head.next;
+
+    head.next = removeNodeRecursive(head.next, target)
+    
+    return head;
+}
 
 
 
@@ -70,5 +80,5 @@ node3.next = node4;
 
 // h -> i -> j -> i
 
-console.log(removeNode(node1, "i"))
+console.log(removeNodeRecursive(node1, "i"))
 // h -> j -> i
