@@ -56,3 +56,31 @@ e.next = f;
 // 5 -> 5 -> 7 -> 7 -> 7 -> 6
 
 console.log(longestStreak(a)) // 3
+
+
+// Structy Iterative
+
+const longestStreakStructy = (head) => {
+
+    let maxStreak = 0;
+    let currentStreak = 0;
+    let current = head;
+    let prevVal = null;
+
+    while (current !== null) {
+        if (current.val === prevVal) {
+            currentStreak++;
+        } else {
+            currentStreak = 1;
+        }
+
+        if (currentStreak > maxStreak) {
+            maxStreak = currentStreak;
+        }
+
+        prevVal = current.val;
+        current = current.next;
+    }
+
+    return maxStreak;
+}
