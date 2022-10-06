@@ -49,10 +49,23 @@ const createLinkedListStructy = (values) => {
 const createLinkedListRecursive = (values) => {
 
     if (values.length === 0) return null;
-
     const head = new Node(values[0]);
+    head.next = createLinkedListRecursive(values.splice(1))
 
-    head.next = createLinkedList(values.splice(1))
+    return head;
+
+}
+
+
+// structy recursive
+
+
+const createLinkedListRecursiveStructy = (values, i = 0) => {
+
+
+    if (i = values.length) return null;
+    const head = new Node(values[i]);
+    head.next = createLinkedListRecursiveStructy(values, i + 1)
 
     return head;
 
