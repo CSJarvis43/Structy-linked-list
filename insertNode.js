@@ -102,5 +102,5 @@ c.next = d;
 
 // a -> b -> c -> d
 
-console.log(insertNode(a, 'm', 4))
+console.log(insertNode(a, 'm', 1))
 // a -> b -> c -> d -> m
