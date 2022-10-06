@@ -64,9 +64,26 @@ const insertNodeStructy = (head, value, index) => {
 
 
 
-// Recursive
+// Charlie's Recursive
 
+const insertNodeRecursive = (head, value, index, count = 0) => {
 
+    if (head === null) return null;
+    if (index === 0) {
+        newHead = new Node(value);
+        newHead.next = head;
+        return newHead;
+    }
+
+    if (count === index - 1) {
+        const next = head.next;
+        head.next = new Node(value);
+        head.next.next = next;
+    } else {
+        insertNode(head.next, value, index, count + 1)
+        return head;
+    }
+}
 
 
 
