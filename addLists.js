@@ -9,28 +9,56 @@ class Node {
 }
 
 
+// The below code is hot garbage from first try, going to restart and follow walkthrough
+
+// const addLists = (head1, head2) => {
+
+
+
+//     let c1 = head1;
+//     let c2 = head2;
+    
+//     let dummyHead = new Node(null);
+//     let dummyCurrent = dummyHead;
+    
+//     while (c1 !== null && c2 !== null) {
+//         dummyCurrent.next = new Node(c1.val + c2.val);
+//         dummyCurrent = dummyCurrent.next;
+//         c1 = c1.next;
+//         c2 = c2.next;
+//     }
+    
+//     if (c1 !== null) dummyCurrent.next = c1;
+//     if (c2 !== null) dummyCurrent.next = c2;
+    
+//     return dummyHead.next;
+
+// }
+
+
 const addLists = (head1, head2) => {
-
-
-
+    const dummyHead = new Node(null);
+    let tail = dummyHead;
     let c1 = head1;
     let c2 = head2;
-    
-    let dummyHead = new Node(null);
-    let dummyCurrent = dummyHead;
-    
-    while (c1 !== null && c2 !== null) {
-        dummyCurrent.next = new Node(c1.val + c2.val);
-        dummyCurrent = dummyCurrent.next;
-        c1 = c1.next;
-        c2 = c2.next;
-    }
-    
-    if (c1 !== null) dummyCurrent.next = c1;
-    if (c2 !== null) dummyCurrent.next = c2;
-    
-    return dummyHead.next;
+    let carry = 0;
 
+    while (c1 !== null || c2 !== null || carry === 1) {
+        const val1 = c1 === null ? null : c1.val;
+        const val2 = c2 === null ? null : c2.val;
+
+        const sum = val1 + val2 + carry;
+        carry = sum > 9 ? 1 : 0;
+        let digit = sum % 10;
+
+        if (c1 !== null) c1 = c1.next;
+        if (c2 !== null) c2 = c2.next;
+
+        tail.next = new Node(digit);
+        tail = tail.next;
+    }
+
+    return dummyHead.next;
 }
 
 
