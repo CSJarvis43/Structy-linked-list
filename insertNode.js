@@ -34,6 +34,36 @@ const insertNode = (head, value, index) => {
 
 }
 
+// Structy Iterative
+
+
+const insertNodeStructy = (head, value, index) => {
+    if (index === 0) {
+        const newHead = new Node(value)
+        newHead.next = head;
+        return newHead;
+    }
+
+    let count = 0;
+    let current = head;
+
+    while (current !== null) {
+        if (count === index - 1) {
+            const temp = current.next;
+            current.next = new Node(value);
+            current.next.next = temp;
+        }
+
+        count++;
+        current = current.next;
+    }
+
+    return head;
+}
+
+
+
+
 // Recursive
 
 
