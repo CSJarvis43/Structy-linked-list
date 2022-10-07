@@ -7,7 +7,7 @@ class Node {
     }
 }
 
-const addListsRecursive = (head1, head2) => {
+const addListsRecursive = (head1, head2, carry = 0) => {
 
 
     if (head1 === null && head2 === null) return null;
@@ -18,11 +18,13 @@ const addListsRecursive = (head1, head2) => {
     const next1 = head1 === null ? null : head1.next;
     const next2 = head2 === null ? null : head2.next;
 
-    const sum = val1 + val2;
+    const sum = val1 + val2 + carry;
+    const carryValue = sum > 9 ? 1 : 0;
+    const nodeDigit = sum % 10;
 
-    const sumNode = new Node(sum);
+    const sumNode = new Node(nodeDigit);
 
-    sumNode.next = addListsRecursive(next1, next2);
+    sumNode.next = addListsRecursive(next1, next2, carryValue);
 
     return sumNode;
 
