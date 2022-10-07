@@ -10,7 +10,7 @@ class Node {
 const addListsRecursive = (head1, head2, carry = 0) => {
 
 
-    if (head1 === null && head2 === null) return null;
+    if (head1 === null && head2 === null && carry === 0) return null;
 
     const val1 = head1 === null ? null : head1.val;
     const val2 = head2 === null ? null : head2.val;
