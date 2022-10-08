@@ -22,3 +22,15 @@ const removeNode = (head, targetVal) => {
 
     return dummyHead.next;
 }
+
+
+// Recurisve
+
+const removeNodeRecursive = (head, targetVal) {
+    if (head === null) return null;
+    if (head.val === targetVal) return head.next;
+    head.next = removeNodeRecursive(head.next, targetVal)
+    return head;
+
+
+}
